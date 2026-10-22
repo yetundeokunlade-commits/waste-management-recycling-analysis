@@ -74,6 +74,31 @@ period_totals = (
 
 st.bar_chart(period_totals)
 
+
+# Show the trend in recorded recycling tonnage over time
+st.subheader("Recycling Tonnage Trend Over Time")
+
+fig, ax = plt.subplots(figsize=(10, 5))
+
+period_totals.plot(
+    kind="line",
+    marker="o",
+    linewidth=2,
+    ax=ax
+)
+
+ax.set_xlabel("Reporting Period")
+ax.set_ylabel("Recorded Recycling Tonnage (tonnes)")
+ax.set_title("Recycling Tonnage Trend Over Time")
+ax.grid(True, alpha=0.3)
+
+plt.xticks(rotation=30, ha="right")
+fig.tight_layout()
+
+st.pyplot(fig)
+plt.close(fig)
+
+
 # Summarise recycling tonnage by material
 st.subheader("Top Five Materials by Recorded Tonnage")
 
@@ -86,16 +111,85 @@ material_totals = (
 
 # Create a pie chart for the top five materials
 fig, ax = plt.subplots(figsize=(8, 6))
+
 material_totals.plot(
     kind="pie",
     autopct="%1.1f%%",
     startangle=90,
-    ax=ax
+    ax=ax,
+    legend=False
 )
+
+ax.legend(
+    labels=material_totals.index,
+    title="Material",
+    loc="center left",
+    bbox_to_anchor=(1.0, 0.5)
+)
+
 ax.set_ylabel("")
 ax.set_title("Share of Recorded Tonnage: Top Five Materials")
 st.pyplot(fig)
 plt.close(fig)
+
+
+
+
+
+# Third chart: Top 10 Local Authorities
+st.subheader("Top 10 Local Authorities by Recorded Recycling Tonnage")
+
+authority_totals = (
+    filtered_df.groupby("Authority")["Recycling_Tonnage"]
+    .sum()
+    .sort_values(ascending=False)
+    .head(10)
+)
+
+if authority_totals.empty:
+    st.info("No authority data is available for the selected filters.")
+else:
+    fig, ax = plt.subplots(figsize=(12, 7))
+
+    sorted_authorities = authority_totals.sort_values(ascending=True)
+
+    bar_colours = [
+        "#4E79A7", "#F28E2B", "#59A14F", "#E15759", "#B07AA1",
+        "#76B7B2", "#EDC948", "#FF9DA7", "#9C755F", "#BAB0AC"
+    ]
+
+    sorted_authorities.plot(
+        kind="barh",
+        ax=ax,
+        color=bar_colours[:len(sorted_authorities)]
+    )
+
+    # Create a colour key for each local authority
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, color=bar_colours[i])
+        for i in range(len(sorted_authorities))
+    ]
+
+    ax.legend(
+        handles,
+        sorted_authorities.index,
+        title="Local Authority — Colour Key",
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.15),
+        ncol=2,
+        frameon=False
+    )
+
+    ax.set_xlabel("Recorded recycling tonnage (tonnes)")
+    ax.set_ylabel("Local authority")
+    ax.set_title("Top 10 Local Authorities by Recorded Recycling Tonnage")
+
+    fig.tight_layout(rect=[0, 0.15, 1, 1])
+    st.pyplot(fig)
+    plt.close(fig)
+
+
+
 
 st.caption(
     "These figures represent recorded tonnage in the selected dataset. "
