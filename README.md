@@ -2,24 +2,29 @@
 
 # Waste Collection Data Analysis: England 2024–2025
 
-
 ## Project Overview
 
-This project analyses waste collection and recycling data for England for the 2024–2025 reporting year. I used Python, Pandas and data visualisation techniques to explore recorded recycling tonnage across reporting periods, local authorities and material categories. I also developed an interactive Streamlit dashboard to help users explore the findings through charts, summary figures and filters.
+This project analyses waste collection and recycling data for England for the 2024–2025 reporting year. I used Python, Pandas and data visualisation techniques to explore recorded recycling tonnage across reporting periods, local authorities and material categories.
+
+I also examined recorded rejected recycling, co-mingled collection responses, and the relationship between household coverage and recycling tonnage. I developed an interactive Streamlit dashboard to present the findings through summary figures, charts and filters.
+
+The aim of this project was to identify patterns in the recorded data, communicate the findings clearly and make the results easier to explore. The analysis focuses on the information available in the dataset and does not claim to explain every factor affecting recycling performance.
 
 ## Dataset Content
 
-The dataset used in this project was obtained from the UK Government's data.gov.uk website. It contains waste collection data for England for the 2024–2025 reporting year.
+The dataset was obtained from the UK Government's data.gov.uk website and published by the Department for Environment, Food and Rural Affairs (Defra).
 
-The data was published by the Department for Environment, Food and Rural Affairs (Defra) and includes information about local authorities, reporting periods, waste materials and recorded tonnage.
+It contains information about waste collection in England, including local authorities, reporting periods, collection measures, material categories and recorded tonnage.
 
-**Dataset source:** https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/waste-data-flow
+**Dataset source:** [Waste Data Flow – data.gov.uk](https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/waste-data-flow)
 
-**Licence:** Open Government Licence.
+**Data publisher:** Department for Environment, Food and Rural Affairs (Defra)
+
+**Licence:** Open Government Licence, as identified for the source data.
+
+The analysis focuses on the four reporting periods covering April 2024 to March 2025.
 
 ## Business Requirements
-
-The aim of this project is to analyse waste collection data for England for the 2024–2025 reporting year and present useful findings through data visualisations and an interactive dashboard.
 
 The project addresses the following business requirements:
 
@@ -27,202 +32,331 @@ The project addresses the following business requirements:
 2. Compare recorded recycling tonnage across local authorities.
 3. Identify the materials with the highest recorded recycling tonnage.
 4. Explore recorded co-mingled collection responses and rejected recycling.
-5. Present the findings in an interactive Streamlit dashboard with filters.
+5. Investigate the relationship between household coverage and recorded recycling tonnage.
+6. Present the findings in an interactive Streamlit dashboard with filters.
 
-## Hypothesis and how to validate?
+These requirements guided my data preparation, exploratory data analysis, visualisations and dashboard development.
 
-**Hypothesis**
+## Hypothesis and Validation
 
-I expect recorded recycling tonnage to differ across reporting periods, local authorities and material categories.
+### Hypothesis
 
-**How I will validate the hypothesis**
+I expected recorded recycling tonnage to vary across reporting periods, local authorities and material categories.
 
-I will use Python and Pandas to group and compare recycling tonnage by reporting period, local authority and material category. I will use charts to identify patterns and differences in the data.
+### How I validated the hypothesis
 
-I will also examine co-mingled collection responses and recorded rejected recycling. These comparisons will help me assess the hypothesis using the available data. The analysis will identify patterns but will not establish the causes of any differences.
+I used Python and Pandas to group and compare recycling tonnage by reporting period, local authority and material category. I used summary statistics and charts to identify patterns and differences in the recorded figures.
+
+I also examined rejected recycling and co-mingled collection responses. In addition, I compared household coverage for co-mingled materials with recorded recycling tonnage and calculated the Pearson correlation coefficient.
+
+The analysis supported my hypothesis that recorded recycling tonnage varied across the dataset. However, these comparisons identify patterns and associations rather than establish the causes of the differences.
 
 ## Project Plan
 
-### Outline the high-level steps taken for the analysis
+### High-level steps taken for the analysis
 
-1. I collected the waste collection dataset from the UK Government's data.gov.uk website.
+1. I obtained the waste collection dataset from the UK Government's data.gov.uk website.
 2. I loaded and inspected the dataset using Python and Pandas.
-3. I selected the relevant records for kerbside waste collection and prepared the data for analysis.
-4. I cleaned the relevant data, converted recycling tonnage values to numeric format and checked for missing values.
-5. I explored recycling tonnage by reporting period, local authority and material category using charts and summary statistics.
-6. I prepared a cleaned CSV file and used it to build an interactive Streamlit dashboard.
-7. I tested the dashboard in a web browser and documented the findings and limitations.
+3. I selected the relevant records for kerbside waste collection.
+4. I cleaned the relevant data, converted the required tonnage values to numeric format and checked for missing values.
+5. I explored recorded recycling tonnage by reporting period, local authority and material category.
+6. I examined recorded rejected recycling, co-mingled collection responses and household coverage.
+7. I created charts and summary statistics to communicate the findings.
+8. I prepared a cleaned CSV file for the dashboard.
+9. I developed and tested an interactive Streamlit dashboard.
+10. I documented the findings, limitations and possible future improvements.
 
-### How was the data managed throughout the collection, processing, analysis and interpretation steps?
+### Data management throughout the project
 
-I obtained the dataset from the UK Government's data.gov.uk website. I loaded it into Python using Pandas and inspected its columns, data types, missing values and structure. I selected the relevant records, cleaned and converted the required values, and saved the prepared recycling data as a CSV file for the dashboard. I used charts and summary statistics to interpret the results. I also considered the limitations of the data when explaining the findings.
+I obtained the dataset from data.gov.uk and loaded it into Python using Pandas. I inspected its structure, columns, data types and missing values before selecting the relevant records.
 
-### Why did you choose the research methodologies you used?
+I cleaned the selected data, converted the required values to numeric format and prepared separate dataframes for different parts of the analysis. I then saved the cleaned recycling data as a CSV file for use in the dashboard.
 
-I chose a quantitative approach because the dataset contains numerical information about recorded waste collection and recycling tonnage. I used exploratory data analysis to identify patterns and differences across reporting periods, local authorities and material categories. I used charts to make comparisons easier to understand and a Streamlit dashboard to present the findings interactively. These methods were suitable for exploring the available data, although they cannot explain the causes of the differences on their own.
+I used grouping, aggregation, summary statistics and charts to examine the recorded figures. I also considered the limitations of the dataset when interpreting the results. The prepared CSV file supports consistency between my analysis and dashboard.
 
-## The rationale to map the business requirements to the Data Visualisations
+### Research methodology
 
-I selected visualisations that help me answer the business requirements and communicate the findings clearly.
+I chose a quantitative approach because the dataset contains numerical information about waste collection and recycling tonnage. I used exploratory data analysis to identify patterns and differences across reporting periods, local authorities and material categories.
 
-- **Recorded recycling tonnage by reporting period (bar chart):** I used a bar chart to compare recorded recycling tonnage across the four reporting periods.
-- **Recorded recycling tonnage by reporting period (line chart):** I used a line chart to show how recorded recycling tonnage changed across the reporting periods.
-- **Top 10 local authorities by recorded recycling tonnage (bar chart):** I used a bar chart to compare the ten local authorities with the highest recorded recycling tonnage.
-- **Recorded recycling tonnage for the top 5 local authorities (line chart):** I used a line chart to compare recorded recycling tonnage across the selected local authorities.
-- **Share of recorded tonnage: top 5 recycling materials (pie chart):** I used a pie chart to show the share of recorded tonnage represented by the five leading recycling materials.
-- **Recorded co-mingled collection responses (bar chart):** I used a bar chart to compare the recorded Yes and No responses.
+Pandas was suitable for filtering, grouping and summarising the records. Matplotlib helped me present comparisons visually, while Streamlit allowed me to build an interactive dashboard.
 
-I also developed a Streamlit dashboard with reporting-period and local-authority filters. The dashboard presents key figures and charts in one place, allowing users to explore the available data. Each visualisation supports comparison and helps communicate patterns, while the findings remain limited to the information recorded in the dataset.
+These methods were appropriate for exploring the available data. However, descriptive analysis alone cannot establish why the recorded figures differ.
 
-### How will the project be implemented and maintained?
+## Data Analysis and Visualisations
 
-I implemented the analysis using Python and Pandas in a Jupyter Notebook. I saved the prepared recycling data in a CSV file and used Streamlit to build an interactive dashboard. I tested the dashboard locally to check that the charts, summary figures and filters worked as expected.
+I selected visualisations that addressed the business requirements and helped communicate the findings.
 
-To maintain the project, I will keep the notebook, dashboard code, cleaned CSV file and README organised in my GitHub repository. If I update the analysis or dashboard, I will test the changes before committing them to GitHub. I will also review the code and documentation when the dataset, requirements or dashboard features change.
+### Recorded recycling tonnage by reporting period
 
-### How will the project be evaluated and updated?
+I used a bar chart to compare recorded recycling tonnage across the four reporting periods. This helped me identify the highest and lowest recorded totals.
 
-I will evaluate the project by checking whether the analysis answers the stated business requirements, whether the visualisations communicate the findings clearly, and whether the dashboard works correctly. I will review the results against the original hypothesis and explain any limitations.
+I also used a line chart to show the change in recorded recycling tonnage across the reporting periods.
 
-If a newer reporting period becomes available, I could update the analysis with the new data. Before doing so, I would check the source, reporting period, column structure and data quality, and repeat the cleaning and testing process. Any updated results would be checked before being presented in the dashboard.
+### Top 10 local authorities by recorded recycling tonnage
 
-## Analysis techniques used
+I used a bar chart to compare the ten local authorities with the highest recorded recycling tonnage. This made it easier to identify authorities with the largest recorded totals in the selected measure.
 
-### List the data analysis methods used and explain limitations or alternative approaches.
+### Recorded recycling tonnage for the top five local authorities
 
-I used data inspection, data cleaning, grouping, aggregation, exploratory data analysis and data visualisation. I used Pandas to prepare and summarise the data and Matplotlib to create bar charts, pie charts and line charts. I also developed an interactive Streamlit dashboard.
+I used a line chart to compare the recorded recycling tonnage of the five local authorities with the highest totals across the four reporting periods. This helped me examine how their recorded figures changed over time.
 
-These methods helped me identify patterns and compare recorded recycling tonnage across reporting periods, local authorities and material categories. Grouping and aggregation were effective because they summarised the large dataset into results that were easier to compare. Bar charts helped me compare quantities, line charts showed changes across reporting periods, and the pie chart showed the share represented by the five leading recycling materials.
+### Leading recycling materials
 
-However, these methods are descriptive and do not explain the causes of differences. The results may also be affected by differences in the amount of waste generated, population size and local collection arrangements. Statistical hypothesis testing could be considered if I had a suitable research question and the necessary assumptions were met. Population or household data could also support more meaningful comparisons, provided the measures were consistent and appropriate.
+I used a pie chart to show the share of recorded tonnage represented by the five materials with the highest totals. This helped me compare the contribution of the leading material categories to the recorded total.
 
-## Ethical considerations (optional)
+### Rejected recycling
 
-I have kept this section because my Unit 3 project involves data analysis and visualisation.
+I examined the recorded amount of recycling material collected but subsequently rejected or disposed of. I compared this amount with the total recorded recycling tonnage.
 
-### Data privacy, bias and fairness
+The recorded rejected amount was 1,756.011 tonnes, compared with approximately 7.20 million tonnes of recorded recycling tonnage. This represents approximately 0.024% of the recorded recycling total.
 
-I used publicly available waste collection data published by Defra through data.gov.uk. The data used in my analysis contains records about waste collection and recycling rather than information intended to identify individual residents. However, I recognise that public data must still be handled responsibly.
+I treated this percentage as a comparison of the recorded measures, rather than an official recycling rejection rate, because the definitions and reporting of the measures would need to be confirmed before making a broader claim.
 
-I considered fairness when comparing recycling tonnage across local authorities. Authorities may differ in population size, the amount of waste generated, collection arrangements and the types of materials recorded. Therefore, a higher recorded tonnage does not automatically mean that an authority performs better than another. I have presented the results as differences in the available records rather than as a ranking of overall performance.
+### Co-mingled collection responses
 
-I also considered the risk of misleading readers through incomplete explanations or visualisations. I used clear chart titles, labels, filters and explanatory notes to help users understand the findings and their limitations.
+I used a bar chart to compare the recorded Yes and No responses for co-mingled collection.
 
-### Legal and societal considerations
+The dataset contained 3,113 No responses and 1,096 Yes responses. These represented 73.96% and 26.04% of the recorded responses respectively.
 
-I used a dataset available under the Open Government Licence and acknowledged the original source. I must continue to follow the licence conditions when sharing the dataset or information derived from it.
+These percentages describe the responses in the selected records. They should not be interpreted as the percentage of all local authorities using or not using co-mingled collection, because authorities may have multiple records across materials and reporting periods.
 
-I also considered relevant data protection and governance principles, including using data appropriately, maintaining transparency and avoiding unsupported conclusions. Although the selected data is publicly available and aggregated, I should not assume that every use of public data is automatically free from ethical or legal concerns.
+### Household coverage and recycling tonnage
 
-The findings may help readers understand recorded recycling patterns across reporting periods, authorities and material categories. However, I cannot use these figures alone to explain why differences occur or to judge the environmental performance of an authority. I have therefore aimed to communicate the results accurately, acknowledge limitations and avoid claims that are not supported by the analysis.
+I compared recorded recycling tonnage with the number of households reported as receiving a co-mingled materials collection. The comparison included 282 local authorities and 1,124 matched authority-period records.
 
-## Dashboard Design (optional)
+The Pearson correlation coefficient was 0.757, indicating a strong positive relationship between the two recorded measures.
 
-I have kept this section because my Unit 3 project includes an interactive Streamlit dashboard.
+This suggests that authorities reporting higher household coverage generally also recorded higher recycling tonnage. However, correlation does not prove causation. Differences in population size, waste generation and local collection arrangements may influence the results.
 
-### Dashboard pages and content
+## Main Findings
 
-My dashboard contains one main page titled **Waste Collection Data Analysis: England 2024–2025**.
+My analysis identified several patterns in the recorded waste collection data.
 
-The page includes:
+- **Changes across reporting periods:** Total recorded recycling tonnage decreased across the four reporting periods, from approximately 2.12 million tonnes in April–June 2024 to approximately 1.49 million tonnes in January–March 2025.
+- **Differences between local authorities:** The recorded recycling totals varied between authorities.
+- **Differences between materials:** Co-mingled materials and green garden waste only accounted for the largest recorded material tonnages in the selected measure.
+- **Rejected recycling:** The recorded rejected amount was small compared with the total recorded recycling tonnage, although the comparison should not be treated as an official rejection rate.
+- **Co-mingled collection:** No was the more common response in the selected records.
+- **Household coverage:** Household coverage and recorded recycling tonnage showed a strong positive association, with a correlation coefficient of 0.757.
 
-- **Introduction:** A short explanation of the purpose of the dashboard.
-- **Filters:** Sidebar multiselect filters for reporting periods and local authorities.
+These findings describe the available records. They do not, on their own, explain why the differences occurred or establish the overall recycling performance of each local authority.
+
+## Preparing Data for the Dashboard
+
+I prepared a cleaned dashboard dataset using the selected recycling records. I retained the columns needed for the dashboard:
+
+- `Authority`
+- `Period`
+- `RowText`
+- `Recycling_Tonnage`
+
+I renamed the numeric tonnage column to `Recycling_Tonnage`, removed records with missing values in that column and checked the resulting dataset.
+
+The cleaned dashboard dataset contains 6,330 records and four columns, with no missing values in those columns.
+
+I saved the prepared data as `cleaned_recycling_dashboard.csv` for use by the Streamlit application.
+
+## Interactive Dashboard
+
+### Dashboard purpose
+
+I developed an interactive Streamlit dashboard to make the findings easier to explore. It presents summary figures and charts in one place and allows users to filter the data by reporting period and local authority.
+
+### Dashboard features
+
+The dashboard contains one main page titled **Waste Collection Data Analysis: England 2024–2025**.
+
+Its features include:
+
+- **Introduction:** A short explanation of the dashboard's purpose.
+- **Reporting-period filter:** Allows users to select the reporting periods they want to explore.
+- **Local-authority filter:** Allows users to focus on selected authorities.
 - **Key figures:** Three metric cards showing recorded recycling tonnage, the number of local authorities and the number of material categories in the filtered data.
-- **Bar chart:** Recorded recycling tonnage by reporting period.
-- **Pie chart:** The share of recorded tonnage represented by the five materials with the highest totals.
-- **Filtered data table:** An expandable section allowing users to view the records matching their selections.
-- **Data limitation note:** A caption explaining that recorded tonnage alone does not measure overall recycling performance.
+- **Bar chart:** Compares recorded recycling tonnage by reporting period.
+- **Pie chart:** Shows the share of recorded tonnage represented by the five materials with the highest totals.
+- **Filtered data table:** An expandable section that allows users to inspect records matching their selections.
+- **Data limitation note:** Explains that recorded tonnage alone does not measure overall recycling performance.
+
+### Dashboard design and communication
+
+I used a simple layout with summary figures near the top, followed by charts and an expandable data table. The filters allow users to focus on specific reporting periods and local authorities.
+
+I used clear titles, labels and explanatory notes to help technical and non-technical users understand the visualisations. Technical users can inspect the filtered records, while other users can use the charts and summary figures to explore the main patterns.
 
 ### Changes made during development
 
-I developed the dashboard using the cleaned CSV dataset prepared during my analysis. I used a bar chart to compare reporting periods and a pie chart to present the distribution of recorded tonnage among the top five materials. I also added filters so users could explore different reporting periods and local authorities.
+During development, I prepared the cleaned CSV file for the dashboard and added reporting-period and local-authority filters. I included summary figures, a bar chart, a pie chart and an expandable table so users could explore the recorded data.
 
-### How were data insights communicated to technical and non-technical audiences?
+I also tested the reporting-period filter to check that the displayed figures changed when a different period was selected.
 
-I presented the findings using clear headings, summary figures and charts. Technical users can examine the filtered records, while non-technical users can use the summary figures and visualisations to understand the main patterns without needing to read the original dataset.
+## Dashboard Testing
 
-### How was the dashboard designed to communicate complex data insights to different audiences?
+I tested my Streamlit dashboard in Chrome to check that it displayed correctly. I confirmed that the dashboard showed its title, key figures, bar chart and pie chart.
 
-I used a simple layout with key figures near the top, followed by charts and an expandable data table. The reporting-period and local-authority filters allow users to focus on specific parts of the dataset. I also included a note explaining the limitations of the figures to encourage responsible interpretation of the results.
+I tested the reporting-period filter by selecting April–June 2024. The recorded recycling tonnage changed from approximately 7,201,391 tonnes in the default view to approximately 2,120,028 tonnes for the selected period. This confirmed that the reporting-period filter updated the displayed figure as expected.
 
-## Unfixed Bugs
+I then restored the default view and confirmed that all four reporting periods and 294 local authorities were included again.
 
-### Unfixed bugs and shortcomings
+The dashboard uses the cleaned recycling dataset prepared during my analysis. The figures describe recorded recycling tonnage and should not be treated as a complete measure of recycling performance.
 
-During testing, I confirmed that the main dashboard features displayed correctly and that the reporting-period filter updated the results. I have not identified any unresolved bugs at this stage.
+## Ethical Considerations
 
-One limitation is that the dashboard depends on the cleaned CSV file being available in the expected project location. If the file is missing or its column names change, the dashboard may fail to load correctly. The dashboard also presents recorded recycling tonnage, which does not account for all the factors needed to assess overall recycling performance.
+### Data privacy, bias and fairness
+
+I used publicly available waste collection data published by Defra through data.gov.uk. The data used in my analysis relates to waste collection records rather than information intended to identify individual residents. However, I recognise that public data must still be handled responsibly.
+
+I considered fairness when comparing recycling tonnage across local authorities. Authorities may differ in population size, the amount of waste generated, collection arrangements and the types of materials recorded. Therefore, a higher recorded tonnage does not automatically mean that an authority performs better than another.
+
+I presented the results as differences in the available records rather than as a definitive ranking of overall recycling performance. I also used clear chart titles, labels and explanatory notes to reduce the risk of misleading readers.
+
+### Legal and societal considerations
+
+I acknowledged the original data source and identified the licence stated for the dataset. I will continue to follow the applicable licence conditions when sharing the data or information derived from it.
+
+I also considered transparency, responsible data use and the importance of avoiding unsupported conclusions. Public availability does not automatically make every possible use of data appropriate.
+
+The findings may help readers understand recorded recycling patterns across reporting periods, local authorities and material categories. However, the figures alone cannot explain why differences occur or provide a complete assessment of environmental performance. I have therefore aimed to communicate the findings accurately and acknowledge the limitations of the analysis.
+
+## Limitations and Unfixed Bugs
+
+### Limitations of the analysis
+
+The analysis is based on the measures available in the dataset. Recorded recycling tonnage alone does not account for every factor that may affect recycling performance.
+
+Differences between local authorities may be influenced by population size, waste generation, collection arrangements, reporting practices and the types of materials recorded.
+
+The co-mingled collection percentages describe the responses in the selected records rather than the proportion of all local authorities using a particular collection method.
+
+The household coverage comparison uses the recorded number of households receiving a co-mingled materials collection. Its correlation with recycling tonnage indicates an association, not a causal relationship.
+
+### Unfixed bugs and technical shortcomings
+
+During testing, I confirmed that the main dashboard features displayed correctly and that the reporting-period filter updated the results as expected. I did not identify any unresolved bugs during these checks.
+
+One technical limitation is that the dashboard depends on the cleaned CSV file being available at the file path expected by the application. If the file is missing or its column names change, the application may fail to load correctly.
+
+The dashboard also depends on the Python libraries and configuration required by the application. These should be maintained and checked when the project is updated.
+
+## Learning and Development
+
+### Skills developed
+
+During this project, I developed my understanding of data inspection, cleaning, grouping, aggregation, exploratory data analysis and visualisation using Python and Pandas.
+
+I also gained practical experience preparing a CSV file for an application, creating an interactive dashboard with Streamlit and testing dashboard filters in a web browser.
 
 ### Gaps in my knowledge and how I addressed them
 
-During this project, I developed my understanding of data cleaning, grouping and aggregation in Pandas, data visualisation, and building interactive dashboards with Streamlit. I used learning resources and generative AI assistance to help me understand unfamiliar code and resolve implementation questions. I then ran and tested my code to check that it worked as expected.
+Some parts of the dataset structure, data preparation and dashboard development were unfamiliar to me. I addressed these challenges by working through the implementation step by step, consulting learning resources and using generative AI assistance to understand unfamiliar code and resolve implementation questions.
 
-### Feedback received and how it improved my approach
+I ran and tested the code to check that it worked as expected and reviewed the results before documenting my findings.
 
-I used the project requirements and my dashboard testing to review my work and identify areas for improvement. Testing the reporting-period filter helped me confirm that the dashboard updated its figures correctly. I also recognised the importance of explaining the limitations of the data so that users do not interpret recorded tonnage as a complete measure of recycling performance.
+### Feedback and improvement
 
-No specific peer or instructor feedback is reported in this section unless I have received and documented it.
+I reviewed my work against the project requirements and used dashboard testing to check whether the main features worked as expected. Testing the reporting-period filter helped me confirm that the dashboard updated its displayed figures correctly.
+
+I also recognised the importance of explaining data limitations so that users do not interpret recorded tonnage as a complete measure of recycling performance.
+
+I have not reported specific peer or instructor feedback here because I have not documented any such feedback in this section.
 
 ## Development Roadmap
 
-### What challenges did you face, and what strategies were used to overcome these challenges?
+### Challenges and how I addressed them
 
-One challenge I faced was understanding the structure of the original dataset and identifying the records relevant to my analysis. I addressed this by inspecting the columns, selecting the relevant kerbside collection records and cleaning the data using Pandas.
+One challenge was understanding the structure of the original dataset and identifying the records relevant to my analysis. I addressed this by inspecting the columns, selecting the relevant kerbside collection records and cleaning the data using Pandas.
 
-Another challenge was developing an interactive dashboard using Streamlit. I worked through the implementation step by step, tested the dashboard in my browser and checked that the reporting-period filter updated the displayed figures correctly. I also used generative AI assistance to help me understand unfamiliar code and resolve problems.
+Another challenge was developing an interactive dashboard with Streamlit. I worked through the implementation step by step, tested the dashboard in my browser and checked that the reporting-period filter updated the displayed figures.
 
-### What new skills or tools do you plan to learn next based on your project experience?
+I also used generative AI assistance to help me understand unfamiliar code and resolve implementation questions.
 
-I plan to improve my knowledge of statistical analysis, hypothesis testing and machine learning using Python and Scikit-learn. I also want to develop my skills in building interactive dashboards, writing more efficient code and presenting data insights clearly. These skills will help me carry out more advanced analysis and communicate findings effectively to different audiences.
+### Future learning and improvements
+
+I plan to improve my knowledge of statistical analysis, hypothesis testing and machine learning using Python and Scikit-learn. I also want to develop my skills in writing efficient code, building interactive dashboards and presenting data insights clearly.
+
+For future work, I could investigate whether newer reporting periods are available and update the analysis with additional data. I would first check the source, reporting periods, column structure and data quality, then repeat the cleaning and testing process.
+
+I could also explore appropriate population or household measures to support more meaningful comparisons between authorities, provided the measures are consistent and suitable for the research question.
 
 ## Deployment
 
-My project includes an interactive Streamlit dashboard developed using Python and the cleaned recycling dataset.
+I deployed my Streamlit dashboard to Heroku.
 
-I ran and tested the dashboard locally using Streamlit in my web browser. At the time of writing, the dashboard has not been deployed to a public hosting platform, so there is no public dashboard link available.
+**Live dashboard:** [Waste Collection Data Analysis: England 2024–2025](https://waste-management-recycling-a849fa5cf04a.herokuapp.com/)
 
-The dashboard can be run locally from the project folder using the following command in the terminal:
+The dashboard allows users to explore recorded waste collection and recycling tonnage data for England for the 2024–2025 reporting year. Users can filter the data by reporting period and local authority and view summary figures and visualisations.
 
-`python -m streamlit run app.py`
+### Running the application locally
 
-The cleaned dataset, `cleaned_recycling_dashboard.csv`, must be available in the expected project location for the dashboard to load successfully.
+To run the application locally, I open a terminal in the project folder and run:
 
+```bash
+python -m streamlit run app.py
+```
 
-## Main Data Analysis Libraries
+The application uses the Python libraries listed in `requirements.txt`. The cleaned dataset, `cleaned_recycling_dashboard.csv`, must also be available at the file path expected by the application.
 
-I used the following Python libraries and tools in my project:
+## Main Data Analysis Libraries and Tools
 
-- **Pandas:** I used Pandas to load, inspect, clean, filter and group the waste collection dataset. For example, I grouped recycling tonnage by reporting period and local authority to compare the recorded totals.
+### Pandas
 
-- **Matplotlib:** I used Matplotlib to create charts to communicate the findings. For example, I created a pie chart showing the share of recorded tonnage represented by the five materials with the highest totals.
+I used Pandas to load, inspect, clean, filter, group and summarise the waste collection dataset. For example, I grouped recycling tonnage by reporting period and local authority to compare recorded totals.
 
-- **Streamlit:** I used Streamlit to build an interactive dashboard. For example, I created metric cards, reporting-period and local-authority filters, charts and an expandable table of filtered records.
+### Matplotlib
 
-- **Jupyter Notebook:** I used Jupyter Notebook to organise my Python code, document the analysis and display the results alongside explanations.
+I used Matplotlib to create charts that communicate the findings, including bar charts and line charts. I also used a pie chart to show the share of recorded tonnage represented by the five leading material categories.
 
-- **Scikit-learn:** This library is part of my planned further learning in statistical modelling and machine learning. It was not used in the current dashboard implementation.
+### Streamlit
 
-These tools helped me prepare the data, explore patterns, visualise findings and present the results in an interactive format.
+I used Streamlit to build the interactive dashboard. I created metric cards, reporting-period and local-authority filters, charts and an expandable table of filtered records.
+
+### Jupyter Notebook
+
+I used Jupyter Notebook to organise my Python code, document the analysis and display the results alongside explanations.
+
+### Scikit-learn
+
+Scikit-learn is part of my planned further learning in statistical modelling and machine learning. It was not used in the current dashboard implementation.
 
 ## Credits
 
-### Content
+### Data Source
 
-- **Department for Environment, Food and Rural Affairs (Defra):** I obtained the waste collection dataset from the UK Government's [data.gov.uk Waste Data Flow dataset](https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/waste-data-flow). The dataset was used for the analysis of recorded recycling tonnage across England for the 2024–2025 reporting year.
-- **Python and Pandas documentation:** I used these tools and their documentation to support data preparation, cleaning and analysis.
-- **Streamlit documentation:** I used Streamlit to develop the interactive dashboard.
-- **Generative AI assistance:** I used ChatGPT to help me understand code, plan sections of the project and improve my documentation. I reviewed and tested the code used in my project.
+- **Department for Environment, Food and Rural Affairs (Defra):** I obtained the waste collection dataset from the UK Government's [Waste Data Flow dataset on data.gov.uk](https://www.data.gov.uk/dataset/0e0c12d8-24f6-461f-b4bc-f6d6a5bf2de5/waste-data-flow). I used this dataset to explore recorded recycling tonnage across England for the 2024–2025 reporting year.
+
+### Documentation and Development Tools
+
+- **[Python](https://docs.python.org/3/):** I used Python to write and run the code for data preparation, cleaning and analysis.
+
+- **[Pandas](https://pandas.pydata.org/docs/):** I used Pandas to load, organise, clean and analyse the dataset, as well as prepare the data for visualisation and the dashboard.
+
+- **[Matplotlib](https://matplotlib.org/stable/):** I used Matplotlib to create charts that helped me identify patterns and compare recycling tonnage across reporting periods, local authorities and material categories.
+
+- **[Streamlit](https://docs.streamlit.io/):** I used Streamlit to develop an interactive dashboard with filters, summary metrics, charts and a data table, allowing users to explore the results.
+
+- **[Jupyter Notebook](https://jupyter.org/):** I used Jupyter Notebook to organise my Python code, document my analytical process, display visualisations and explain my findings.
+
+- **[Code Institute](https://codeinstitute.net/):** I used the Code Institute Learning Management System (LMS) to access course materials, learning resources, project guidance and assessment requirements that supported my learning and project development.
+
+- **[Heroku](https://www.heroku.com/):** I used Heroku to deploy and host my Streamlit dashboard online so that it could be accessed through a web browser. I published my dashboard here: [Waste Collection Data Analysis Dashboard](https://waste-management-recycling-a849fa5cf04a.herokuapp.com/).
+
+### Writing and Generative AI Assistance
+
+- **[ChatGPT](https://chatgpt.com/):** I used ChatGPT to help me understand unfamiliar code, troubleshoot technical issues, organise sections of my project and improve my written explanations. I reviewed the code, checked the outputs and considered the results before including my findings in the project.
+
+- **[Grammarly](https://www.grammarly.com/):** I used Grammarly to check spelling, grammar and clarity in my written documentation, helping me communicate my work more clearly.
 
 ### Media
 
 I created the charts and dashboard visualisations using Python libraries. I did not use external photographs or other media in the dashboard.
 
 
-## Acknowledgements (optional)
+### Acknowledgements
 
-I would like to thank Code Institute for providing the learning materials and project guidance that supported my development throughout this course.
+I would like to express my sincere gratitude to the entire **Code Institute team** for their teaching, guidance, encouragement and support throughout my Data Analytics with AI learning journey. The learning resources, feedback and explanations provided during our Stand-up and Stand-down sessions helped me better understand the project guidelines and assessment requirements. This support has contributed to my understanding of data analytics and strengthened my confidence in applying my skills.
 
-I am also grateful for the publicly available waste collection dataset provided by the Department for Environment, Food and Rural Affairs (Defra) through data.gov.uk.
+I am also grateful for the learning materials and support available through the Code Institute Learning Management System, which helped me develop my knowledge and work towards completing this project.
 
-Finally, I acknowledge the support of generative AI tools in helping me understand unfamiliar code, organise my project documentation and improve my learning throughout the development process.
+A special thank you goes to my husband and children for their patience, encouragement and support throughout my learning journey. Their understanding, especially during the time I spent studying, practising and completing this project, have meant a great deal to me.
+
+Finally, I acknowledge the support of generative AI tools in helping me understand unfamiliar code, organise my project documentation and improve my learning throughout the development process. I reviewed my work and checked the outputs before presenting my analysis and conclusions.
+
