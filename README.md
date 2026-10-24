@@ -349,6 +349,24 @@ Scikit-learn is part of my planned further learning in statistical modelling and
 
 I created the charts and dashboard visualisations using Python libraries. I did not use external photographs or other media in the dashboard.
 
+### Project Reflection
+
+Completing my Waste Management and Recycling Data Analysis project has been a valuable learning experience. I used Python, Pandas, Matplotlib, Jupyter Notebook and Streamlit to prepare and analyse waste collection data for England for the 2024–2025 reporting year. I also developed an interactive dashboard and deployed it using Heroku.
+
+One of the main challenges I faced was understanding the structure of the original dataset, cleaning the data and selecting the correct information for analysis. I also encountered technical issues while writing and testing code, preparing the dashboard dataset and deploying the application. I addressed these challenges by reviewing error messages, researching solutions, asking follow-up questions and testing changes in small steps until I achieved the expected results.
+
+I used ChatGPT as a learning support tool to understand unfamiliar code, troubleshoot errors, improve my documentation and organise my project sections. However, I learned that AI suggestions do not always work correctly with my dataset or project structure. I therefore reviewed the suggested solutions, tested the code and checked my outputs before using them in my analysis. This helped me develop my problem-solving skills and become more confident in working independently.
+
+Through my analysis, I identified differences in recorded recycling tonnage across reporting periods, local authorities and material categories. I also explored the relationship between household coverage and recycling tonnage. The findings helped me understand the importance of checking data quality, interpreting results carefully and recognising that a relationship between two variables does not necessarily mean that one causes the other.
+
+Developing the Streamlit dashboard helped me understand how data analysis can be presented in a clear and interactive way. I learned how to use filters, summary metrics and charts to help users explore the findings. Testing the dashboard also showed me the importance of checking that the displayed results respond correctly to user selections.
+
+I considered ethical issues by acknowledging the data source, checking the stated data licence, presenting findings responsibly and explaining the limitations of my analysis. I also recognised the importance of verifying AI-generated suggestions rather than accepting them without review.
+
+If I were to develop this project further, I would explore additional ways to compare local authorities fairly, investigate possible reasons for changes in recorded recycling tonnage and improve the dashboard's accessibility and visual presentation. I would also continue developing my Python, data visualisation and dashboard deployment skills.
+
+Overall, this project has strengthened my understanding of the data analytics process, from data preparation and exploratory analysis to visualisation, dashboard development and communication of findings. It has also improved my confidence, patience and ability to solve technical problems. I am proud of the progress I have made and will use the knowledge and experience gained from this project in my future data analytics work.
+
 
 ### Acknowledgements
 
